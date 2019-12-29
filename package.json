@@ -1,0 +1,14 @@
+{
+  "name": "devbup-portal-fed",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^13.1.1",
+    "@types/webpack": "^4.41.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
