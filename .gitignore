@@ -1,5 +1,13 @@
+# npm or yarn
 /node_modules
 /yarn.lock
+/package-lock.json
+
+# systom
 /.Ds_Store
+
+# editor
+
+# dist
 /dist
 /build

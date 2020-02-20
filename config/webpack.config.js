@@ -1,10 +1,9 @@
-import path from 'path';
-import { Configuration } from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
-const config: Configuration = {
+const config = {
   mode,
   entry: path.resolve(__dirname, '../src/index.ts'),
   output: {
@@ -30,4 +29,4 @@ const config: Configuration = {
   },
 };
 
-export default config;
+module.exports = config;
