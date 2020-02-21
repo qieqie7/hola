@@ -5,24 +5,25 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && cross-env TS_NODE_PROJECT=\"./config/tsconfig-for-webpack-config.json\" NODE_ENV=\"production\" webpack --config ./config/webpack.config.ts",
-    "dev": "cross-env TS_NODE_PROJECT=\"./config/tsconfig-for-webpack-config.json\" webpack --config ./config/webpack.config.ts",
-    "dev:js": "cross-env webpack --config ./config/webpack.config.js"
+    "dev": "cross-env TS_NODE_PROJECT=\"./config/tsconfig-for-webpack-config.json\"  webpack-dev-server --config ./config/webpack.config.ts"
   },
   "devDependencies": {
+    "@types/html-webpack-plugin": "^3.2.2",
     "@types/node": "^13.1.1",
     "@types/react": "^16.9.21",
     "@types/react-dom": "^16.9.5",
     "@types/webpack": "^4.41.0",
+    "@types/webpack-dev-server": "^3.10.0",
     "cross-env": "^7.0.0",
     "html-webpack-plugin": "^3.2.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@types/html-webpack-plugin": "^3.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }

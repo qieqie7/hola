@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import A1 from './A1';
+import A2 from './A2';
 
 const root = document.getElementById('root');
 
-export const start = () => ReactDom.render(<div>i from react</div>, root);
-// export const start = () => console.log(123);
+export const start = () =>
+  ReactDom.render(
+    <div>
+      <A1 />
+      <A2 />
+    </div>,
+    root,
+  );
