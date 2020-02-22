@@ -1,15 +1,17 @@
+// TODO: polyfill 的按需加载
+// import '@babel/polyfill';
 import React from 'react';
 import ReactDom from 'react-dom';
-import A1 from './A1';
-import A2 from './A2';
+import './app.less';
 
 const root = document.getElementById('root');
 
-export const start = () =>
-  ReactDom.render(
-    <div>
-      <A1 />
-      <A2 />
-    </div>,
-    root,
-  );
+const App = () => (
+  <div className="welcomeWrap">
+    <h1>Welcome</h1>
+    <p>no amount of money ever bought a second of time.</p>
+    <p>寸金难买寸光阴</p>
+  </div>
+);
+
+ReactDom.render(<App />, root);

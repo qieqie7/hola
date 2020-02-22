@@ -9,14 +9,40 @@ type Config = Configuration & devConfiguration;
 
 const config: Config = {
   mode,
-  entry: path.resolve(__dirname, '../src/index.ts'),
+  entry: path.resolve(__dirname, '../src/app.tsx'),
   output: { path: path.resolve(__dirname, '../dist'), filename: 'index.bundle.js' },
   plugins: [
     new HtmlWebpackPlugin({ title: 'webpack app', template: 'src/index.html' }),
     new HotModuleReplacementPlugin(),
   ],
-  module: { rules: [{ test: /\.tsx?$/, loader: 'ts-loader' }] },
+  module: {
+    rules: [
+      {
+        test: /\.[tj]sx?$/,
+        include: path.resolve(__dirname, '../src'),
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader', // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+          },
+          {
+            loader: 'less-loader', // compiles Less to CSS
+          },
+        ],
+      },
+    ],
+  },
   resolve: { extensions: ['.tsx', '.ts', '.jsx', '.js'] },
+  devtool: 'eval-source-map',
   devServer: {
     // NOTE: 似乎和inline一起使用才有效果，没搞明白
     // contentBase: path.join(__dirname, './'),

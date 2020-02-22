@@ -7,6 +7,7 @@
 /.Ds_Store
 
 # editor
+.vscode
 
 # dist
 /dist
