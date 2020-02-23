@@ -2,6 +2,7 @@ import path from 'path';
 import { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { Configuration as devConfiguration } from 'webpack-dev-server';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
@@ -13,6 +14,8 @@ const config: Config = {
   output: { path: path.resolve(__dirname, '../dist'), filename: 'index.bundle.js' },
   plugins: [
     new HtmlWebpackPlugin({ title: 'webpack app', template: 'src/index.html' }),
+    new MiniCssExtractPlugin(),
+    // TODO: 生产环境千万不要开启热更新
     new HotModuleReplacementPlugin(),
   ],
   module: {
@@ -29,7 +32,12 @@ const config: Config = {
         test: /\.less$/,
         use: [
           {
-            loader: 'style-loader', // creates style nodes from JS strings
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: true,
+              hmr: mode === 'development',
+              reload: true,
+            },
           },
           {
             loader: 'css-loader', // translates CSS into CommonJS
@@ -44,7 +52,7 @@ const config: Config = {
   resolve: { extensions: ['.tsx', '.ts', '.jsx', '.js'] },
   devtool: 'eval-source-map',
   devServer: {
-    // NOTE: 似乎和inline一起使用才有效果，没搞明白
+    // TODO: 似乎和inline一起使用才有效果，没搞明白
     // contentBase: path.join(__dirname, './'),
     hot: true,
     // NOTE: 单页面应用且使用historyApi会用到，他会让所有请求均返回特定页面，但可以配置路由规则
