@@ -3,6 +3,7 @@ import { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { Configuration as devConfiguration } from 'webpack-dev-server';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
@@ -15,6 +16,7 @@ const config: Config = {
   plugins: [
     new HtmlWebpackPlugin({ title: 'webpack app', template: 'src/index.html' }),
     new MiniCssExtractPlugin(),
+    new CopyWebpackPlugin([{ from: path.resolve(__dirname, '../public') }]),
     // TODO: 生产环境千万不要开启热更新
     new HotModuleReplacementPlugin(),
   ],

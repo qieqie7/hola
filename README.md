@@ -14,8 +14,11 @@
 - ~~css 处理 less-loader~~
 - ~~source-map~~
 - ~~css 作为外部链接映入~~
-- ~~css hmr ~~
-- build后 css代码没有压缩
+- ~~css hmr~~
+- ~~静态资源处理~~
+- css module
+- 配置 alias
+- 开发时，报错信息在网页展示
 - webpack.config.ts 文件修改，重启开发服务器
 - 为什么热更新没有按照预期的执行，是目前只有一个bundle.js吗
 - devServer.open 设置之后，每次重启就会打开新的页面，如何检测当前页面是否存在开发页面
@@ -23,11 +26,12 @@
 - 启用 hash 去缓存
 - react reactdom 代码拆分
 - webpack 差分 开发配置 与 生产配置
-- polyfill的按需加载
-- 静态资源处理
-- 开发时，报错信息在网页展示
+  - 生产环境不应该打包source-map文件
+  - source-map文件在index.bundle.js文件内
+  - build后 css代码没有压缩
 - DllPlugin Dynamic Link Library
 - 多线程打包
+- polyfill的按需加载
 
 ### 二期目标
 
