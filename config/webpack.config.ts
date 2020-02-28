@@ -4,8 +4,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { Configuration as devConfiguration } from 'webpack-dev-server';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+// 用户自定义外部配置
+import holaConfig from './.holarc';
 
-const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const isProd = process.env.NODE_ENV === 'production';
+const mode = isProd ? 'production' : 'development';
 
 type Config = Configuration & devConfiguration;
 
@@ -37,7 +40,7 @@ const config: Config = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               esModule: true,
-              hmr: mode === 'development',
+              hmr: !isProd,
               reload: true,
             },
           },
@@ -52,7 +55,7 @@ const config: Config = {
     ],
   },
   resolve: { extensions: ['.tsx', '.ts', '.jsx', '.js'] },
-  devtool: 'eval-source-map',
+  devtool: isProd ? undefined : 'eval-source-map',
   devServer: {
     // TODO: 似乎和inline一起使用才有效果，没搞明白
     // contentBase: path.join(__dirname, './'),
@@ -63,6 +66,7 @@ const config: Config = {
     port: 9527,
     open: true,
   },
+  proxy: holaConfig.proxy,
 };
 
 export default config;
