@@ -25,13 +25,14 @@
 - commit 提交规范
 - 启用 hash 去缓存
 - react reactdom 代码拆分
-- webpack 差分 开发配置 与 生产配置
-  - 生产环境不应该打包source-map文件
-  - source-map文件在index.bundle.js文件内
+- ~~webpack 差分 开发配置 与 生产配置~~
+  - ~~生产环境不应该打包source-map文件~~
   - build后 css代码没有压缩
+  - source-map文件在index.bundle.js文件内
 - DllPlugin Dynamic Link Library
 - 多线程打包
 - polyfill的按需加载
+- ~~开发环境开启GZIP~~
 
 ### 二期目标
 

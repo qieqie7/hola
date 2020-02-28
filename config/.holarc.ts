@@ -1,5 +1,7 @@
 import { ProxyConfigMap, ProxyConfigArray } from 'webpack-dev-server';
 
-export default {} as {
+export default {
+  proxy: {},
+} as {
   proxy?: ProxyConfigMap | ProxyConfigArray;
 };

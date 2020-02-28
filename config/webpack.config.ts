@@ -8,20 +8,16 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import holaConfig from './.holarc';
 
 const isProd = process.env.NODE_ENV === 'production';
-const mode = isProd ? 'production' : 'development';
 
 type Config = Configuration & devConfiguration;
 
 const config: Config = {
-  mode,
   entry: path.resolve(__dirname, '../src/app.tsx'),
   output: { path: path.resolve(__dirname, '../dist'), filename: 'index.bundle.js' },
   plugins: [
     new HtmlWebpackPlugin({ title: 'webpack app', template: 'src/index.html' }),
     new MiniCssExtractPlugin(),
     new CopyWebpackPlugin([{ from: path.resolve(__dirname, '../public') }]),
-    // TODO: 生产环境千万不要开启热更新
-    new HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
@@ -55,18 +51,6 @@ const config: Config = {
     ],
   },
   resolve: { extensions: ['.tsx', '.ts', '.jsx', '.js'] },
-  devtool: isProd ? undefined : 'eval-source-map',
-  devServer: {
-    // TODO: 似乎和inline一起使用才有效果，没搞明白
-    // contentBase: path.join(__dirname, './'),
-    hot: true,
-    // NOTE: 单页面应用且使用historyApi会用到，他会让所有请求均返回特定页面，但可以配置路由规则
-    // historyApiFallback: true
-    // inline: false
-    port: 9527,
-    open: true,
-  },
-  proxy: holaConfig.proxy,
 };
 
 export default config;
