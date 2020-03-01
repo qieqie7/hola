@@ -24,7 +24,6 @@
 - devServer.open 设置之后，每次重启就会打开新的页面，如何检测当前页面是否存在开发页面
 - commit 提交规范
 - 启用 hash 去缓存
-- react reactdom 代码拆分
 - ~~webpack 差分 开发配置 与 生产配置~~
   - ~~生产环境不应该打包source-map文件~~
   - build后 css代码没有压缩
@@ -33,9 +32,12 @@
 - 多线程打包
 - polyfill的按需加载
 - ~~开发环境开启GZIP~~
+- 【开发环境】端口被占用，提示是否使用当前占用端口+1
+- react reactdom 代码拆分 // 这个打包优化有点复杂 SplitChunksPlugin
+
 
 ### 二期目标
-
 - 提供配置文件，集中配置处理
+  - 【开发环境】提供GZIP选项
 - 按需配置
 - 作为 cli 安装

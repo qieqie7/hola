@@ -1,4 +1,4 @@
-import webpack, { Configuration } from 'webpack';
+import { Configuration } from 'webpack';
 import webpackMerge from 'webpack-merge';
 import webpackBasicConfig from './webpack.config';
 // 用户自定义外部配置

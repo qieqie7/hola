@@ -1,7 +1,5 @@
-import { ProxyConfigMap, ProxyConfigArray } from 'webpack-dev-server';
+import { HolaConfiguration } from './.hola.types';
 
-export default {
-  proxy: {},
-} as {
-  proxy?: ProxyConfigMap | ProxyConfigArray;
-};
+const holaConfig: HolaConfiguration = {};
+
+export default holaConfig;
