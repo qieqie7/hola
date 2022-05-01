@@ -1,14 +1,9 @@
-import { ProxyConfigMap, ProxyConfigArray } from 'webpack-dev-server';
-import webpack from 'webpack';
+import { Configuration } from 'webpack';
+import { Configuration as WDSConfig } from 'webpack-dev-server';
 
 export interface HolaConfiguration {
-  // webpack
-  outputPath?: string;
-  proxy?: ProxyConfigMap | ProxyConfigArray;
-  externals?:
-    | string
-    | RegExp
-    | webpack.ExternalsObjectElement
-    | webpack.ExternalsFunctionElement
-    | webpack.ExternalsElement[];
+    // webpack
+    outputPath?: string;
+    proxy?: WDSConfig['proxy'];
+    externals?: Configuration['externals'];
 }
