@@ -20,7 +20,7 @@ export function exportTxtToZip(th: string, jsonData: any[], txtName?: string, zi
         (blob) => {
             saveAs(blob, `${zip_name}.zip`);
         },
-        (err) => {
+        () => {
             alert('导出失败');
         },
     );
