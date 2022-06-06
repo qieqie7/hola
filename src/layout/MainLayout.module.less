@@ -1,0 +1,27 @@
+.container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    height: 50px;
+    .pageTitle {
+        flex: 1;
+        margin-left: 20px;
+        line-height: 50px;
+        color: #97a8be;
+    }
+    .rightTools {
+        margin-right: 30px;
+        height: 50px;
+    }
+
+    .fullScreen {
+        cursor: pointer;
+        transition: all 0.2s;
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
+}

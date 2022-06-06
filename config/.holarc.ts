@@ -1,5 +1,3 @@
-import { HolaConfiguration } from './.hola.types';
+import { definedConfig } from './.hola.types';
 
-const holaConfig: HolaConfiguration = {};
-
-export default holaConfig;
+export default definedConfig({});

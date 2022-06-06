@@ -11,17 +11,26 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
-        "jsx": true
+            "jsx": true
         },
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
     "plugins": ["react", "@typescript-eslint", "prettier"],
     "rules": {
-            "indent": ["error", 4],
-            "semi": ["error", "always"],
-            "comma-dangle": ["error", "always-multiline"],
-            "space-before-function-paren": ["error", "never"],
-            "prettier/prettier": "error"
+        // switch case 强制 switch 语句中的 case 子句的缩进级别
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "always-multiline"],
+        "space-before-function-paren": ["error", "never"],
+        "prettier/prettier": ["warn"],
+        "@typescript-eslint/no-empty-interface": 1,
+        "@typescript-eslint/ban-ts-comment": 0,
+        "react/react-in-jsx-scope": "off"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
