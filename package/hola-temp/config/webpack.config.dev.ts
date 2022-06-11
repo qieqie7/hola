@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import EslintWebpackPlugin from 'eslint-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import WebpackBar from "webpackbar";
+import WebpackBar from 'webpackbar';
 // 用户自定义外部配置
 import holaConfig from './.holarc';
 
@@ -42,19 +42,18 @@ const config: Configuration = {
             emitWarning: false,
         }),
         new ReactRefreshWebpackPlugin(),
-        new WebpackBar({name: 'Hola Cli'}),
+        new WebpackBar({ name: 'Hola Cli' }),
     ],
     module: {
         rules: [
             {
                 test: /\.[tj]sx?$/,
-                include: path.resolve(__dirname, '../src'),
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
-                    options: {
-                        plugins: [require.resolve('react-refresh/babel')],
-                    },
+                    // options: {
+
+                    // },
                 },
             },
             {
@@ -105,7 +104,7 @@ const config: Configuration = {
             directory: path.join(__dirname, outputPath),
         },
         client: {
-            logging: 'warn'
+            logging: 'warn',
         },
         hot: true,
         // NOTE: 单页面应用且使用historyApi会用到，他会让所有请求均返回特定页面，但可以配置路由规则
@@ -132,9 +131,9 @@ const config: Configuration = {
     cache: {
         type: 'filesystem',
         buildDependencies: {
-            config: [__filename]
-        }
-    }
+            config: [__filename],
+        },
+    },
 };
 
 export default config;

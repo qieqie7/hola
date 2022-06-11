@@ -14,7 +14,7 @@ export function fullScreen(element: Element) {
         // @ts-ignore
         element.webkitRequestFullScreen();
     } else {
-        throw new Error('抱歉，您的浏览器不支持自动全屏操作');
+        console.error('抱歉，您的浏览器不支持自动全屏操作');
     }
 }
 
@@ -34,6 +34,6 @@ export function cancelFullScreen() {
         // @ts-ignore
         document.webkitCancelFullScreen();
     } else {
-        throw new Error('抱歉，您的浏览器不支持自动取消全屏操作');
+        console.error('抱歉，您的浏览器不支持自动全屏操作');
     }
 }
